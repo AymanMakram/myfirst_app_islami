@@ -1,14 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:myfirst_app_islami/HomeScreen.dart';
+import 'package:myfirst_app_islami/home/HomeScreen.dart';
 
-import 'HomeScreen.dart';
+import 'home/HomeScreen.dart';
 
 void main() {
   runApp(MainApplication());
 }
 
 class MyThemeData {
-  static final Color primarycolor = Color.fromARGB(255, 183, 147, 95);
+  static final Color primaryColor = Color.fromARGB(255, 183, 147, 95);
+  static final Color darkPrimaryColor = Color.fromARGB(255, 20, 26, 46);
+  static final ThemeData lightTheme = ThemeData(
+      scaffoldBackgroundColor: Colors.transparent,
+      primaryColor: MyThemeData.primaryColor,
+      appBarTheme: AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontSize: 30,
+          )),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: Colors.black, unselectedItemColor: Colors.white));
+  static final ThemeData darkTheme = ThemeData(
+    scaffoldBackgroundColor: Colors.transparent,
+    primaryColor: MyThemeData.darkPrimaryColor,
+    appBarTheme: AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 30,
+        )),
+  );
 }
 
 class MainApplication extends StatelessWidget {
@@ -17,17 +41,7 @@ class MainApplication extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       title: 'Islami',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.transparent,
-        primaryColor: MyThemeData.primarycolor,
-        appBarTheme: AppBarTheme(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            titleTextStyle: TextStyle(
-              color: Colors.black,
-              fontSize: 30,
-            )),
-      ),
+      theme: MyThemeData.lightTheme,
       routes: {HomeScreen.routeName: (buildContext) => HomeScreen()},
       initialRoute: HomeScreen.routeName,
     );
