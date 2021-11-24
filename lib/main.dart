@@ -15,6 +15,7 @@ class MyThemeData {
       primaryColor: MyThemeData.primaryColor,
       appBarTheme: AppBarTheme(
           backgroundColor: Colors.transparent,
+          centerTitle: true,
           elevation: 0,
           titleTextStyle: TextStyle(
             color: Colors.black,
@@ -27,6 +28,7 @@ class MyThemeData {
     primaryColor: MyThemeData.darkPrimaryColor,
     appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
+        centerTitle: true,
         elevation: 0,
         titleTextStyle: TextStyle(
           color: Colors.white,

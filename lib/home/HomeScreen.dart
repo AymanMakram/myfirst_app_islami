@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       Scaffold(
         appBar: AppBar(
-          title: Center(child: Text('إسلامي')),
+          title: Text('إسلامي'),
         ),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentindex,
