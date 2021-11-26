@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myfirst_app_islami/home/quran/verseWidget.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = 'SuraDetailsScreen';
@@ -28,17 +29,29 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
       ),
       Scaffold(
         appBar: AppBar(
-          title: Text(args.suraName),
+          title: Text(args.suraName,style: TextStyle(color: Colors.black,fontSize: 30,),),
         ),
         body: Container(
           child: ayat.isEmpty
               ? Center(child: CircularProgressIndicator())
-              : ListView.builder(
-                  itemBuilder: (buildContext, index) {
-                    return Text(ayat[index]);
-                  },
-                  itemCount: ayat.length,
-                ),
+              : Container(
+            decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(24)),
+            margin: EdgeInsets.symmetric(horizontal: 24,vertical: 68),
+            padding: EdgeInsets.all(8),
+                child: ListView.separated(
+                    itemBuilder: (buildContext, index) {
+                      return VerseWidget(ayat[index],index);
+                    },
+                    itemCount: ayat.length,
+            separatorBuilder: (buildcontext, index) {
+                return Container(
+                  height: 1,
+                  color: Theme.of(context).primaryColor,
+                  margin: EdgeInsets.symmetric(horizontal: 24),
+                );
+            },
+                  ),
+              ),
         ),
       )
     ]);
